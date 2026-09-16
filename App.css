@@ -1,0 +1,35 @@
+.app {
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.title {
+    color: darkcyan;
+}
+
+.btn {
+    font-size: 1.2rem;
+    padding: 8px 16px;
+    margin: 4px;
+    cursor: pointer;
+    background-color: darkcyan;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    width: 50px;
+    height: 50px;
+}
+
+.reset {
+    margin-top: 40px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    padding: 8px 16px;
+    margin: 4px;
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+}
