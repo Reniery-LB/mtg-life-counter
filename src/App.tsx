@@ -1,46 +1,43 @@
-import { useState } from 'react'
+import usePlayer from './hooks/usePlayer';
+import Player from './components/Player';
 import '../App.css';
+
+const RESET_CONFIRM_MESSAGE = "¿Estas seguro de reiniciar los puntos?";
 
 function App() {
 
-  const [player1, setPlayer1] = useState(20);
-  const [player2, setPlayer2] = useState(20);
+  const player1 = usePlayer();
+  const player2 = usePlayer();
 
-  const decreasePlayer1 = () => {
-    if (player1 > 0)
-      setPlayer1(player1 - 1);
-  }
-
-  const decreasePlayer2 = () => {
-    if (player2 > 0)
-      setPlayer2(player2 - 1);
-  }
-
-  const reset = () => {
-    const confirmar = window.confirm("¿Estas seguro de reiniciar los puntos?");
+  const handleOnResetClick = () => {
+    const confirmar = window.confirm(RESET_CONFIRM_MESSAGE);
     if (confirmar) {
-      setPlayer1(20);
-      setPlayer2(20);
+      player1.reset();
+      player2.reset();
     }
   }
 
   return (
     <div className="app">
       <h1 className="title">Magic The Gathering</h1>
-      <br />
-      <h1>Player 1: {player1}</h1>
-      <button className="btn" onClick={decreasePlayer1}>-</button>
-      <button className="btn" onClick={() => setPlayer1(player1 + 1)}>+</button>
 
-      <h1>Player 2: {player2}</h1>
-      <button className="btn" onClick={decreasePlayer2}>-</button>
-      <button className="btn" onClick={() => setPlayer2(player2 + 1)}>+</button>
+      <Player
+        counter={player1.counter}
+        onIncreaseCounter={player1.increaseCounter}
+        onDecreaseCounter={player1.decreaseCounter}
+        playerLabel="Player 1"
+      />
 
-      <br />
-      <button className="reset" onClick={reset}>Reiniciar</button>
+      <Player
+        counter={player2.counter}
+        onIncreaseCounter={player2.increaseCounter}
+        onDecreaseCounter={player2.decreaseCounter}
+        playerLabel="Player 2"
+      />
 
+      <button className="reset" onClick={handleOnResetClick}>Reiniciar</button>
     </div>
   )
 }
 
-export default App
+export default App;
