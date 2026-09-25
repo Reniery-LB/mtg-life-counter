@@ -1,13 +1,26 @@
 .app {
     text-align: center;
     font-family: sans-serif;
+    position: relative;
+    padding-top: 20px;
 }
 
 .title {
     color: darkcyan;
 }
 
+.actions {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+
 .btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     font-size: 1.2rem;
     padding: 8px 16px;
     margin: 4px;
@@ -16,20 +29,91 @@
     color: white;
     border: none;
     border-radius: 6px;
-    width: 50px;
+    min-width: 50px;
     height: 50px;
+    box-sizing: border-box;
+    user-select: none;
 }
 
 .reset {
-    margin-top: 40px;
     background-color: red;
     color: white;
     border: none;
     border-radius: 6px;
+    font-weight: bold;
     font-size: 1.2rem;
     padding: 8px 16px;
-    margin: 4px;
     cursor: pointer;
     width: 150px;
     height: 50px;
+}
+
+.add {
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 8px 16px;
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+}
+
+.remove {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: darkcyan;
+    opacity: 0.65;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    margin: 4px;
+    cursor: pointer;
+    min-width: 50px;
+    height: 50px;
+    box-sizing: border-box;
+    user-select: none;
+    transition: opacity 0.2s ease;
+}
+
+.remove:hover {
+    opacity: 0.95;
+}
+
+.resetAll {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 8px 16px;
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+}
+
+.player-input {
+    font-size: 1.1rem;
+    padding: 6px 12px;
+    border: 2px solid darkcyan;
+    border-radius: 6px;
+    text-align: center;
+    outline: none;
+    margin-top: 16px;
+    font-family: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.player-input:focus {
+    border-color: #005f5f;
+    box-shadow: 0 0 6px rgba(0, 139, 139, 0.35);
 }
